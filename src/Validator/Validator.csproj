@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -6,17 +6,46 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>beswarm.validator</RootNamespace>
     <Version>1.0.0</Version>
+    
     <Authors>Be Swarm</Authors>
     <Company>Be Swarm</Company>
     <PackageId>beswarm.Validator</PackageId>
     <Title>Validator for Data Annotations Attribute and fluent validation</Title>
-    <Description>Manage localized validation (DataAnnotation attribute) and fluent validation on property value.
-       provide Blazor &lt;beswarm.validator.BlazorValidator&gt; for EditForm
+    <Description>
+      Manage localized validation (DataAnnotation attribute) and fluent validation on property value.
+      provide Blazor &lt;beswarm.validator.BlazorValidator&gt; for EditForm
     </Description>
     <Copyright>Beswarm</Copyright>
     <PackageProjectUrl>https://github.com/be-swarm/Validator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/be-swarm/Validator</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.MD</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReleaseNotes>
+    </PackageReleaseNotes>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Blazor;Validator;DataAnnotation;FluentValidation</PackageTags>
+   
+
   </PropertyGroup>
 
+
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.MD">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
@@ -26,6 +55,10 @@
     <PackageReference Include="FluentValidation" Version="11.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.9" />
     <PackageReference Include="System.Runtime" Version="4.3.1" />
+    <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
