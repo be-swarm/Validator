@@ -66,7 +66,7 @@ ex: check if [Required] is present on a property
    RequiredAttribute? ra=Validate.GetAttributeIfExist<RequiredAttribute>(t, nameof(t.Name));
 ```
       
-```csharp
+
 ## Using with blazor
 ```csharp
 <EditForm Model="@_model" OnValidSubmit="@SubmitValidForm">
