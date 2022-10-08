@@ -28,15 +28,9 @@ public class FluentValidatorModel : AbstractValidator<Model>
 {
 	public FluentValidatorModel()
 	{
-		RuleSet("FilterName", () =>
+		RuleSet("Name", () =>
 		{
 			RuleFor(x => x.Name).NotEmpty().WithMessage("controlled by fluent: not empty");
-		});
-		RuleFor(x => x.Age).GreaterThan(0).WithMessage("controlled by fluent: greater than 0");
-		RuleFor(x => x.Name).NotEmpty().WithMessage("controlled by fluent: not empty");
-		RuleForEach(x => x.Sports).ChildRules(sports =>
-		{
-			sports.RuleFor(x => x.Name).NotEmpty().WithMessage("controlled by fluent: not empty");
 		});
 	}
 }
