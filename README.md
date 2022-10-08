@@ -59,6 +59,14 @@ class Program
 }
 
 ```
+Get attribute on property if exist
+
+ex: check if [Required] is present on a property
+```csharp
+   RequiredAttribute? ra=Validate.GetAttributeIfExist<RequiredAttribute>(t, nameof(t.Name));
+```
+      
+```csharp
 ## Using with blazor
 ```csharp
 <EditForm Model="@_model" OnValidSubmit="@SubmitValidForm">

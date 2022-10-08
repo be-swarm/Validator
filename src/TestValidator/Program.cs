@@ -48,17 +48,6 @@ class Program
         {
             Console.WriteLine($"*** error **** Field: {item.PropertyName} value={item.Obj} attribute:{item.AttributeType} message:{item.ErrorMessage}");
         }
-
-
-
-
-        //      RequiredAttribute? ra=Validate.GetAttributeIfExist<RequiredAttribute>(t, nameof(t.String));
-        //var ra2 = Validate.GetAttributeIfExist<RequiredAttribute>(t, nameof(t.String2));
-
-        //var ra3 = Validate.GetAttributeIfExist<MinLengthAttribute>(t, nameof(t.List));
-
-        //var ra43 = Validate.GetAttributeIfExist<MinLengthAttribute>(t, "NotFoound");
-
         Console.ReadKey();
     }
 }
