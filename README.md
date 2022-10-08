@@ -74,6 +74,8 @@ Create au fluent class
 			RuleFor(x => x.Name).NotEmpty().WithMessage("controlled by fluent: not empty");
 	}
  }
+```
+```csharp
  // add fluent validator
  FluentValidatorModel fv = new();
  context.FluentValidator = fv;
