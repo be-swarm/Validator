@@ -1,0 +1,139 @@
+﻿@page "/"
+@using FluentValidation.Internal
+@using beswarm.validator
+@using FluentValidation
+@using System.Globalization
+@using System.ComponentModel.DataAnnotations
+@inject NavigationManager navigationManager
+
+<h1>Test Validation Blazor</h1>
+
+<hr class="mb-5" />
+
+langue:
+<select @onchange="ChangeLang">
+	<option>choisissez...</option>
+	<option value="fr-FR">Français</option>
+	<option value="en-US">English</option>
+	<option value="it-IT">Italien</option>
+	<option value="es-ES">Espagnol</option>
+
+</select>
+<b>Call 1</b>
+<div>@GetText()</div>
+
+<b>Call 2</b>
+<div>@(Task.Run(() => GetText()).Result)</div>
+
+<EditForm Model="@_model" OnValidSubmit="@SubmitValidForm">
+	<beswarm.validator.BlazorValidator @ref="_BlazorValidationValidator" ValidateContext="mycontext" />
+
+	<p>
+		<label>Name: </label>
+		<InputText @bind-Value="@_model.Name" />
+		
+		<label style="color:red" hidden="@(Task.Run(()=>Validate.GetAttributeIfExist<RequiredAttribute>(_model, nameof(_model.Name))).Result is {}?false:true)">*</label>
+
+		<ValidationMessage For="@(() => _model.Name)" />
+	</p>
+	<p>
+		<label>Age: </label>
+		<InputNumber @bind-Value="@_model.Age" />
+		<ValidationMessage For="@(() => _model.Age)" />
+	</p>
+	<p>
+		<label>Sports: </label>
+		<table>
+			@foreach(var item in _model.Sports)
+			{
+				
+				<tr>
+					<td>
+						<InputText @bind-Value="@item.Name" />
+						<ValidationMessage For="@(() => item.Name)" />
+					</td>
+					<td>
+						<InputNumber @bind-Value="@item.Rate" />
+						<ValidationMessage For="@(() => item.Rate)" />
+					</td>
+					<td>
+						<button type="button" @onclick="()=>Remove(item)">Supprimer item</button>
+					</td>
+				</tr>
+			}
+		</table>
+		
+		@{
+			//MaxLengthAttribute? max = null;
+			//max = Validate.GetAttributeIfExist<MaxLengthAttribute>(_model, nameof(_model.Sports));
+			//if (max is { } && _model.Sports.Count < max.Length)
+			//{
+			//	<button type="button" @onclick="()=>Add()">Ajouter</button>
+			//}
+		}
+		<ValidationMessage For="@(() => _model.Sports)" />
+
+	</p>
+	<button type="submit">Save</button>
+
+</EditForm>
+<button @onclick="PartialValidate">Partial Validation</button>
+
+
+@code {
+	private readonly Model _model = new();
+	ValidateContext mycontext = new(false);
+	[Inject] private IValidator<Model>? fluentvalidator { get; set; } = default!;
+	string GetText() => "Hello World";
+	private BlazorValidator? _BlazorValidationValidator;
+
+	protected override async Task OnInitializedAsync()
+	{
+		mycontext.FluentValidator = fluentvalidator;
+		// add mimimal number of items if specified
+		//var minimal = Validate.GetAttributeIfExist<MinLengthAttribute>(_model, nameof(_model.Sports));
+		//if (minimal is { })
+		//{
+		//	for (int i = 0; i < minimal.Length; i++) _model.Sports.Add(new());
+		//}
+	}
+
+	private async Task PartialValidate()
+	{
+		if (_BlazorValidationValidator is { })
+		{
+			Action<ValidationStrategy<object>> strategy = new(options => options.IncludeRuleSets("FilterName"));
+			_BlazorValidationValidator.ValidateContext.FluentStrategy = strategy;
+			var result = await _BlazorValidationValidator.ValidateModelAsync();
+			_BlazorValidationValidator.ValidateContext.FluentStrategy = null; // execute just this time
+		}
+	}
+
+	private void SubmitValidForm()
+	{
+		Console.WriteLine("Form Submitted Successfully!");
+	}
+	private void Remove(Sport item)
+	{
+		_model.Sports.Remove(item);
+
+	}
+	private void  Add()
+	{
+		// maximum is attempted ?
+		var maximal = Validate.GetAttributeIfExist<MaxLengthAttribute>(_model, nameof(_model.Sports));
+		if (maximal is { } && _model.Sports.Count < maximal.Length) _model.Sports.Add(new());
+
+
+	}
+	private void ChangeLang(ChangeEventArgs e)
+	{
+		var culture = (string)e.Value;
+		var uri = new Uri(navigationManager.Uri)
+			.GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+		var query = $"?culture={Uri.EscapeDataString(culture)}&" +
+					$"redirectionUri={Uri.EscapeDataString(uri)}";
+		navigationManager.NavigateTo("/Culture/SetCulture" + query, forceLoad: true);
+	}
+
+}

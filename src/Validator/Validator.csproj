@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>beswarm.validator</RootNamespace>
+    <Version>1.0.0</Version>
+    <Authors>Be Swarm</Authors>
+    <Company>Be Swarm</Company>
+    <PackageId>beswarm.Validator</PackageId>
+    <Title>Validator for Data Annotations Attribute and fluent validation</Title>
+    <Description>Manage localized validation (DataAnnotation attribute) and fluent validation on property value.
+       provide Blazor &lt;beswarm.validator.BlazorValidator&gt; for EditForm
+    </Description>
+    <Copyright>Beswarm</Copyright>
+    <PackageProjectUrl>https://github.com/be-swarm/Validator</PackageProjectUrl>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.9" />
+    <PackageReference Include="System.Runtime" Version="4.3.1" />
+  </ItemGroup>
+
+</Project>
