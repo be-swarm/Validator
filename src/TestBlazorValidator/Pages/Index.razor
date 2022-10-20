@@ -1,6 +1,6 @@
 ﻿@page "/"
 @using FluentValidation.Internal
-@using beswarm.validator
+@using BeSwarm.Validator
 @using FluentValidation
 @using System.Globalization
 @using System.ComponentModel.DataAnnotations
@@ -26,7 +26,7 @@ langue:
 <div>@(Task.Run(() => GetText()).Result)</div>
 
 <EditForm Model="@_model" OnValidSubmit="@SubmitValidForm">
-	<beswarm.validator.BlazorValidator @ref="_BlazorValidationValidator" ValidateContext="mycontext" />
+	<BeSwarm.Validator.BlazorValidator @ref="_BlazorValidationValidator" ValidateContext="mycontext" />
 
 	<p>
 		<label>Name: </label>
@@ -128,7 +128,7 @@ langue:
 	}
 	private void ChangeLang(ChangeEventArgs e)
 	{
-		var culture = (string)e.Value;
+		var culture = (string)e.Value! ?? string.Empty;
 		var uri = new Uri(navigationManager.Uri)
 			.GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
 		var query = $"?culture={Uri.EscapeDataString(culture)}&" +

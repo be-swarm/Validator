@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace beswarm.validator.validators;
+namespace BeSwarm.Validator.validators;
 
 public class ValidatorAttributeMinLength : IValidatorAttribute
 {

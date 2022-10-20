@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using beswarm.validator;
+using BeSwarm.Validator;
 
 using FluentValidation.Results;
 
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using beswarm.validator.validators;
+using BeSwarm.Validator.validators;
 using TestBlazor;
 
 class Program

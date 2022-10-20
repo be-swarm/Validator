@@ -1,4 +1,4 @@
-﻿using beswarm.validator.validators;
+﻿using BeSwarm.Validator.validators;
 
 using FluentValidation;
 using FluentValidation.Internal;
@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace beswarm.validator;
+namespace BeSwarm.Validator;
 
 public class ValidateContext
 {

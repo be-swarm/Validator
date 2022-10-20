@@ -1,10 +1,10 @@
   <Version>1.0.0</Version>
     <Authors>Be Swarm</Authors>
     <Company>Be Swarm</Company>
-    <PackageId>beswarm.Validator</PackageId>
+    <PackageId>BeSwarm.Validator</PackageId>
     <Title>Validator for Data Annotations Attribute and fluent validation</Title>
     <Description>Manage localized validation (DataAnnotation attribute) and fluent validation on property value.
-       provide Blazor &lt;beswarm.validator.BlazorValidator&gt; for EditForm
+       provide Blazor &lt;BeSwarm.Validator.BlazorValidator&gt; for EditForm
     </Description>
     <Copyright>Beswarm</Copyright>
     <PackageProjectUrl>https://github.com/be-swarm/......</PackageProjectUrl>

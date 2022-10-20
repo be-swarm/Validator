@@ -6,8 +6,7 @@ namespace TestBlazorValidator;
 
 public class Model
 {
-	[Required]
-	public string Name { get; set; }
+	[Required] public string Name { get; set; } = default!;
 	[Range(1, 99)]
 	public int Age { get; set; }
 	[MaxLength(5)]
@@ -19,7 +18,7 @@ public class Model
 public class Sport
 {
 	[Required]
-	public string Name { get; set; }
+	public string Name { get; set; } = default!;
 	[Range(1, 5)]
 	public int Rate { get; set; }
 }

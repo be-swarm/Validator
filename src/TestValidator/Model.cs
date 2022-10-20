@@ -6,9 +6,7 @@ namespace TestBlazor;
 
 public class Model
 {
-    [Required]
-    [MaxLength(6)]
-    public string Name { get; set; }
+	[Required] [MaxLength(6)] public string Name { get; set; } = default!;
 }
 
 public class FluentValidatorModel : AbstractValidator<Model>

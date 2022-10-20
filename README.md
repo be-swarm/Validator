@@ -1,7 +1,7 @@
 # Validator
 
-[![NuGet](https://img.shields.io/nuget/v/beswarm.Validator.svg)](https://www.nuget.org/packages/beswarm.Validator/)
-[![NuGet](https://img.shields.io/nuget/dt/beswarm.Validator.svg)](https://www.nuget.org/packages/beswarm.Validator/)
+[![NuGet](https://img.shields.io/nuget/v/BeSwarm.Validator.svg)](https://www.nuget.org/packages/BeSwarm.Validator/)
+[![NuGet](https://img.shields.io/nuget/dt/BeSwarm.Validator.svg)](https://www.nuget.org/packages/BeSwarm.Validator/)
 
 
 Perform recursive localized DataAnnotations Attribute validation on your models and fluent validations.
@@ -70,7 +70,7 @@ ex: check if [Required] is present on a property
 ## Using with blazor
 ```csharp
 <EditForm Model="@_model" OnValidSubmit="@SubmitValidForm">
-	<beswarm.validator.BlazorValidator @ref="_BlazorValidationValidator" ValidateContext="mycontext" />
+	<BeSwarm.Validator.BlazorValidator @ref="_BlazorValidationValidator" ValidateContext="mycontext" />
 ```
 ## Add Fluent validation
 Create au fluent class

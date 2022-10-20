@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace beswarm.validator.validators;
+namespace BeSwarm.Validator.validators;
 public class ValidatorAttributeMaxLength : IValidatorAttribute
 {
 	public Type Type => typeof(MaxLengthAttribute);
@@ -18,7 +18,7 @@ public class ValidatorAttributeMaxLength : IValidatorAttribute
 	public ValidationStatus? IsValid(ValidationAttribute? attribute, object? value, string name, ValidateContext context, bool islist)
 	{
 		ValidationStatus? validation = null;
-		if (attribute.GetType() == Type)
+		if (attribute?.GetType() == Type)
 		{
 
 			if (!attribute.IsValid(value))

@@ -8,7 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace beswarm.validator.validators;
+namespace BeSwarm.Validator.validators;
 public class ValidatorAttributeRequired : IValidatorAttribute
 {
 	public Type Type => typeof(RequiredAttribute);

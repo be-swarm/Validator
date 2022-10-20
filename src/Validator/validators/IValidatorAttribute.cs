@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace beswarm.validator.validators;
+namespace BeSwarm.Validator.validators;
 
 public interface IValidatorAttribute
 {

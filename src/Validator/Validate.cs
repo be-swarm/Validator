@@ -22,7 +22,7 @@ using System.Xml.Linq;
 
 using static FluentValidation.AssemblyScanner;
 
-namespace beswarm.validator;
+namespace BeSwarm.Validator;
 
 
 public class ValidationStatus
