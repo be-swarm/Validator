@@ -28,9 +28,9 @@ public class ValidatorAttributeMinLength : IValidatorAttribute
 				validation.PropertyName = name;
 				validation.AttributeType = attribute.GetType().Name;
 				if (islist == true)
-					validation.ErrorMessage = context.lm.GetString("GreaterThanValidator").Replace("{PropertyName}", name).Replace("{ComparisonValue}", ((MinLengthAttribute)attribute).Length.ToString());
+					validation.ErrorMessage = context.lm.GetString("GreaterThanValidator", context.Culture).Replace("{PropertyName}", name).Replace("{ComparisonValue}", ((MinLengthAttribute)attribute).Length.ToString());
 				else
-					validation.ErrorMessage = context.lm.GetString("MinimumLength_Simple").Replace("{PropertyName}", name).Replace("{MinLength}", ((MinLengthAttribute)attribute).Length.ToString());
+					validation.ErrorMessage = context.lm.GetString("MinimumLength_Simple", context.Culture).Replace("{PropertyName}", name).Replace("{MinLength}", ((MinLengthAttribute)attribute).Length.ToString());
 				if (context.shownameinmessage == false)
 					validation.ErrorMessage = validation.ErrorMessage.Replace($"'{name}'", "");
 			}

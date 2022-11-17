@@ -8,7 +8,7 @@
     
     
     
-    <Version>1.0.0-rc1</Version>
+    <Version>1.0.1</Version>
     <Authors>Be Swarm</Authors>
     <Company>Be Swarm</Company>
     <PackageId>BeSwarm.Validator</PackageId>

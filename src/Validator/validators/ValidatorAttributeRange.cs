@@ -26,7 +26,7 @@ public class ValidatorAttributeRange : IValidatorAttribute
 				validation.Obj = value;
 				validation.PropertyName = name;
 				validation.AttributeType = attribute.GetType().Name;
-				validation.ErrorMessage = context.lm.GetString("InclusiveBetween_Simple").Replace("{PropertyName}", name).Replace("{From}", ((RangeAttribute)attribute).Minimum.ToString()).Replace("{To}", ((RangeAttribute)attribute).Maximum.ToString());
+				validation.ErrorMessage = context.lm.GetString("InclusiveBetween_Simple", context.Culture).Replace("{PropertyName}", name).Replace("{From}", ((RangeAttribute)attribute).Minimum.ToString()).Replace("{To}", ((RangeAttribute)attribute).Maximum.ToString());
 				if (context.shownameinmessage == false)
 					validation.ErrorMessage = validation.ErrorMessage.Replace($"'{name}'", "");
 			}

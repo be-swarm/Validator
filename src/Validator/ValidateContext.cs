@@ -26,6 +26,8 @@ public class ValidateContext
 	public IValidator? FluentValidator;
 	public Action<ValidationStrategy<object>>? FluentStrategy;
 
+	public CultureInfo? Culture { get; set; }
+
 	public ValidateContext(bool shownameinmessage)
 	{
 		validatorsattribute = new();

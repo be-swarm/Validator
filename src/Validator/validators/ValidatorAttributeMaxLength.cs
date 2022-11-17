@@ -30,9 +30,9 @@ public class ValidatorAttributeMaxLength : IValidatorAttribute
 					AttributeType = attribute.GetType().Name
 				};
 				if (islist == true)
-					validation.ErrorMessage = context.lm.GetString("LessThanOrEqualValidator").Replace("{PropertyName}", name).Replace("{ComparisonValue}", ((MaxLengthAttribute)attribute).Length.ToString());
+					validation.ErrorMessage = context.lm.GetString("LessThanOrEqualValidator",context.Culture).Replace("{PropertyName}", name).Replace("{ComparisonValue}", ((MaxLengthAttribute)attribute).Length.ToString());
 				else
-					validation.ErrorMessage = context.lm.GetString("MaximumLength_Simple").Replace("{PropertyName}", name).Replace("{MaxLength}", ((MaxLengthAttribute)attribute).Length.ToString());
+					validation.ErrorMessage = context.lm.GetString("MaximumLength_Simple", context.Culture).Replace("{PropertyName}", name).Replace("{MaxLength}", ((MaxLengthAttribute)attribute).Length.ToString());
 				if (context.shownameinmessage == false)
 					validation.ErrorMessage = validation.ErrorMessage.Replace($"'{name}'", "");
 			}

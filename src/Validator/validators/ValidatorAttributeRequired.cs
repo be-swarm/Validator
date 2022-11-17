@@ -24,7 +24,7 @@ public class ValidatorAttributeRequired : IValidatorAttribute
 				validation.Obj = value;
 				validation.PropertyName = name;
 				validation.AttributeType = attribute.GetType().Name;
-				validation.ErrorMessage = context.lm.GetString("NotEmptyValidator").Replace("{PropertyName}", name);
+				validation.ErrorMessage = context.lm.GetString("NotEmptyValidator", context.Culture).Replace("{PropertyName}", name);
 				if (context.shownameinmessage == false)
 					validation.ErrorMessage = validation.ErrorMessage.Replace($"'{name}'", "");
 

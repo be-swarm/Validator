@@ -26,9 +26,9 @@ public class ValidatorAttributeStringLength : IValidatorAttribute
 				validation.PropertyName = name;
 				validation.AttributeType = attribute.GetType().Name;
 				if (((StringLengthAttribute)attribute).MinimumLength != 0)
-					validation.ErrorMessage = context.lm.GetString("Length_Simple").Replace("{PropertyName}", name).Replace("{MinLength}", ((StringLengthAttribute)attribute).MinimumLength.ToString()).Replace("{MaxLength}", ((StringLengthAttribute)attribute).MaximumLength.ToString());
+					validation.ErrorMessage = context.lm.GetString("Length_Simple", context.Culture).Replace("{PropertyName}", name).Replace("{MinLength}", ((StringLengthAttribute)attribute).MinimumLength.ToString()).Replace("{MaxLength}", ((StringLengthAttribute)attribute).MaximumLength.ToString());
 				else
-					validation.ErrorMessage = context.lm.GetString("MaximumLength_Simple").Replace("{PropertyName}", name).Replace("{MaxLength}", ((StringLengthAttribute)attribute).MaximumLength.ToString());
+					validation.ErrorMessage = context.lm.GetString("MaximumLength_Simple", context.Culture).Replace("{PropertyName}", name).Replace("{MaxLength}", ((StringLengthAttribute)attribute).MaximumLength.ToString());
 				if (context.shownameinmessage == false)
 					validation.ErrorMessage = validation.ErrorMessage.Replace($"'{name}'", "");
 			}
